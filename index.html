@@ -11,7 +11,6 @@
 <style>
 :root {
   --papel: #ead9b5;
-  --papel-claro: #f4e8ca;
   --marrom: #49301d;
   --dourado: #a77b32;
   --verde: #183c2d;
@@ -26,15 +25,14 @@
 body {
   min-height: 100vh;
   color: var(--marrom);
-  background:
-    radial-gradient(ellipse at center, #385342, #14271e);
+  background: radial-gradient(ellipse at center, #385342, #14271e);
   font-family: 'Crimson Text', Georgia, serif;
 }
 
 header {
   text-align: center;
-  padding: 24px 12px;
-  color: var(--papel-claro);
+  padding: 25px 12px;
+  color: var(--papel);
   background: linear-gradient(90deg, #142c20, #34533b, #142c20);
   border-bottom: 4px solid var(--dourado);
 }
@@ -46,7 +44,7 @@ header h1 {
 }
 
 header p {
-  margin-top: 7px;
+  margin-top: 8px;
   font-size: 18px;
   color: #e6c987;
 }
@@ -62,8 +60,7 @@ main {
   padding: 42px;
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse at center, #f6ebce 0%, #ead9b5 75%, #d8bf91 100%);
+  background: radial-gradient(ellipse at center, #f6ebce, #ead9b5 75%, #d8bf91);
   border: 8px double var(--dourado);
   outline: 2px solid #4b321f;
   box-shadow: 0 15px 45px #0008;
@@ -77,6 +74,7 @@ main {
   color: #a77b32;
   font-size: 38px;
   opacity: .65;
+  pointer-events: none;
 }
 
 .slide::before {
@@ -151,9 +149,6 @@ img {
 
 .capa {
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .capa h2 {
@@ -187,14 +182,6 @@ img {
   margin: 20px;
 }
 
-.legenda {
-  text-align: center;
-  font-size: 15px;
-  font-style: italic;
-  margin-top: -12px;
-  color: #705737;
-}
-
 .linha-tempo {
   border-left: 3px solid #987039;
   margin: 25px 0 25px 15px;
@@ -209,6 +196,8 @@ img {
   color: #31523a;
 }
 
+/* CONTROLES DA APRESENTAÇÃO */
+
 .controles {
   display: flex;
   justify-content: space-between;
@@ -219,7 +208,7 @@ img {
 }
 
 button {
-  padding: 13px 24px;
+  padding: 13px 20px;
   border: 2px solid #d5b36a;
   background: linear-gradient(#6a4a26, #3d2b1c);
   color: #fff0c8;
@@ -234,10 +223,43 @@ button:hover {
   transform: translateY(-2px);
 }
 
+button:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+  transform: none;
+}
+
 #contador {
   font-family: 'Cinzel', serif;
   color: #f4dfad;
   font-size: 16px;
+}
+
+/* NARRAÇÃO */
+
+.audio-controles {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+  padding: 18px 8px 5px;
+  border-top: 2px solid #a77b32;
+}
+
+.audio-controles button {
+  font-size: 12px;
+  padding: 12px 15px;
+}
+
+.audio-status {
+  width: 100%;
+  text-align: center;
+  color: #624722;
+  font-size: 16px;
+  min-height: 25px;
 }
 
 footer {
@@ -262,6 +284,11 @@ footer {
     padding: 11px 12px;
     font-size: 12px;
   }
+
+  .audio-controles button {
+    font-size: 10px;
+    padding: 10px;
+  }
 }
 </style>
 </head>
@@ -275,23 +302,16 @@ footer {
 
 <main>
 
-<!-- SLIDE 1 -->
 <section class="slide active capa">
   <div class="numero">APRESENTAÇÃO HISTÓRICA • 1822–1831</div>
   <div class="coroa">👑</div>
   <h2>O Primeiro Reinado</h2>
   <p class="subtitulo">O nascimento do Império do Brasil</p>
-  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/DpedroI-brasil-full.jpg"
-       alt="Retrato histórico de Dom Pedro I">
-  <p style="text-align:center">
-    Um período de grandes mudanças, conflitos e decisões que marcaram a história brasileira.
-  </p>
-  <div class="destaque">
-    Período: 7 de setembro de 1822 a 7 de abril de 1831.
-  </div>
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/DpedroI-brasil-full.jpg" alt="Retrato de Dom Pedro I">
+  <p>Um período de grandes mudanças, conflitos e decisões que marcaram a história brasileira.</p>
+  <div class="destaque">Período: 7 de setembro de 1822 a 7 de abril de 1831.</div>
 </section>
 
-<!-- SLIDE 2 -->
 <section class="slide">
   <div class="numero">CAPÍTULO I • CONTEXTO HISTÓRICO</div>
   <h2>O Brasil antes da Independência</h2>
@@ -305,12 +325,9 @@ footer {
   <h3>A Revolução Liberal do Porto</h3>
   <p>Em 1820, uma revolução em Portugal exigiu mudanças políticas e a volta do rei. As Cortes portuguesas também queriam reduzir a autonomia que o Brasil havia conquistado.</p>
 
-  <div class="destaque">
-    Esse cenário aumentou as tensões entre os interesses de Portugal e os grupos que defendiam a autonomia brasileira.
-  </div>
+  <div class="destaque">Esse cenário aumentou as tensões entre os interesses de Portugal e os grupos que defendiam a autonomia brasileira.</div>
 </section>
 
-<!-- SLIDE 3 -->
 <section class="slide">
   <div class="numero">CAPÍTULO II • A INDEPENDÊNCIA</div>
   <h2>O caminho para a Independência</h2>
@@ -322,18 +339,14 @@ footer {
   <h3>O Dia do Fico</h3>
   <p>Em 9 de janeiro de 1822, Dom Pedro anunciou que ficaria no Brasil. Esse acontecimento ficou conhecido como Dia do Fico e representou um importante passo rumo à separação de Portugal.</p>
 
-  <div class="destaque">
-    A decisão de permanecer no Brasil fortaleceu o movimento pela Independência.
-  </div>
+  <div class="destaque">A decisão de permanecer no Brasil fortaleceu o movimento pela Independência.</div>
 </section>
 
-<!-- SLIDE 4 -->
 <section class="slide">
   <div class="numero">CAPÍTULO III • 7 DE SETEMBRO</div>
   <h2>A Independência do Brasil</h2>
 
-  <img src="https://en.wikisource.org/wiki/Special:FilePath/Pedro_Am%C3%A9rico_-_Independ%C3%AAncia_ou_Morte_-_cores_ajustadas.jpg"
-       alt="Pintura Independência ou Morte, de Pedro Américo">
+  <img src="https://en.wikisource.org/wiki/Special:FilePath/Pedro_Am%C3%A9rico_-_Independ%C3%AAncia_ou_Morte_-_cores_ajustadas.jpg" alt="Pintura Independência ou Morte">
 
   <p>No dia 7 de setembro de 1822, às margens do riacho Ipiranga, em São Paulo, Dom Pedro declarou a separação política do Brasil em relação a Portugal.</p>
 
@@ -341,18 +354,14 @@ footer {
 
   <p>Em dezembro de 1822, Dom Pedro foi coroado imperador, recebendo o título de Dom Pedro I.</p>
 
-  <div class="destaque">
-    A Independência não resolveu todos os problemas: o novo país ainda precisava organizar seu governo e conquistar reconhecimento internacional.
-  </div>
+  <div class="destaque">A Independência não resolveu todos os problemas: o novo país ainda precisava organizar seu governo e conquistar reconhecimento internacional.</div>
 </section>
 
-<!-- SLIDE 5 -->
 <section class="slide">
   <div class="numero">CAPÍTULO IV • O NOVO IMPÉRIO</div>
   <h2>Dom Pedro I e o início do governo</h2>
 
-  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/DpedroI-brasil-full.jpg"
-       alt="Retrato de Dom Pedro I">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/DpedroI-brasil-full.jpg" alt="Retrato de Dom Pedro I">
 
   <p>Dom Pedro I tornou-se o primeiro imperador do Brasil em 1822. Seu governo começou com o desafio de organizar um país independente, formado por províncias com interesses diferentes.</p>
 
@@ -367,13 +376,11 @@ footer {
   </ul>
 </section>
 
-<!-- SLIDE 6 -->
 <section class="slide">
   <div class="numero">CAPÍTULO V • ORGANIZAÇÃO POLÍTICA</div>
   <h2>A Constituição de 1824</h2>
 
-  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Juramento_imperial_%C3%A0_Constitui%C3%A7%C3%A3o_de_1824_(2).jpg"
-       alt="Juramento imperial à Constituição de 1824">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Juramento_imperial_%C3%A0_Constitui%C3%A7%C3%A3o_de_1824_(2).jpg" alt="Juramento à Constituição de 1824">
 
   <p>Em 1823, foi reunida uma Assembleia Constituinte para elaborar a primeira Constituição do Brasil independente.</p>
 
@@ -390,7 +397,6 @@ footer {
   </ul>
 </section>
 
-<!-- SLIDE 7 -->
 <section class="slide">
   <div class="numero">CAPÍTULO VI • SOCIEDADE E ECONOMIA</div>
   <h2>Como era o Brasil nessa época?</h2>
@@ -409,12 +415,9 @@ footer {
     <li>Havia diferenças econômicas entre as províncias.</li>
   </ul>
 
-  <div class="destaque">
-    Apesar da Independência política, muitas desigualdades herdadas do período colonial permaneceram.
-  </div>
+  <div class="destaque">Apesar da Independência política, muitas desigualdades herdadas do período colonial permaneceram.</div>
 </section>
 
-<!-- SLIDE 8 -->
 <section class="slide">
   <div class="numero">CAPÍTULO VII • REVOLTAS</div>
   <h2>A Confederação do Equador</h2>
@@ -430,12 +433,9 @@ footer {
   <h3>O resultado</h3>
   <p>O governo imperial enviou forças militares para combater os revoltosos. O movimento foi derrotado e seus participantes sofreram forte repressão.</p>
 
-  <div class="destaque">
-    A Confederação do Equador mostrou que existia forte oposição ao governo de Dom Pedro I.
-  </div>
+  <div class="destaque">A Confederação do Equador mostrou que existia forte oposição ao governo de Dom Pedro I.</div>
 </section>
 
-<!-- SLIDE 9 -->
 <section class="slide">
   <div class="numero">CAPÍTULO VIII • CONFLITO INTERNACIONAL</div>
   <h2>A Guerra da Cisplatina</h2>
@@ -449,12 +449,9 @@ footer {
   <h3>O desfecho</h3>
   <p>Com a mediação da Inglaterra, foi firmado um acordo que levou à independência da região. Em 1828, nasceu o Uruguai como país independente.</p>
 
-  <div class="destaque">
-    A perda da Cisplatina aumentou as críticas ao governo de Dom Pedro I.
-  </div>
+  <div class="destaque">A perda da Cisplatina aumentou as críticas ao governo de Dom Pedro I.</div>
 </section>
 
-<!-- SLIDE 10 -->
 <section class="slide">
   <div class="numero">CAPÍTULO IX • CRISE POLÍTICA</div>
   <h2>O enfraquecimento do governo</h2>
@@ -468,12 +465,9 @@ footer {
   <h3>O aumento das críticas</h3>
   <p>A imprensa e os grupos políticos passaram a questionar as atitudes do imperador. A situação ficou ainda mais complicada após a crise sucessória em Portugal, envolvendo a família de Dom Pedro I.</p>
 
-  <div class="destaque">
-    A combinação de dificuldades econômicas, conflitos políticos e perda de apoio tornou o governo cada vez mais instável.
-  </div>
+  <div class="destaque">A combinação de dificuldades econômicas, conflitos políticos e perda de apoio tornou o governo cada vez mais instável.</div>
 </section>
 
-<!-- SLIDE 11 -->
 <section class="slide">
   <div class="numero">CAPÍTULO X • 1831</div>
   <h2>A abdicação de Dom Pedro I</h2>
@@ -486,12 +480,9 @@ footer {
 
   <p>Como o herdeiro ainda era criança, o Brasil passou a ser governado por regentes. Assim começou o Período Regencial.</p>
 
-  <div class="destaque">
-    A abdicação marcou o fim do Primeiro Reinado e abriu uma nova fase na história política do Brasil.
-  </div>
+  <div class="destaque">A abdicação marcou o fim do Primeiro Reinado e abriu uma nova fase na história política do Brasil.</div>
 </section>
 
-<!-- SLIDE 12 -->
 <section class="slide">
   <div class="numero">CAPÍTULO FINAL • CONCLUSÃO</div>
   <h2>O legado do Primeiro Reinado</h2>
@@ -514,16 +505,15 @@ footer {
 
   <div class="destaque">
     O Primeiro Reinado terminou em 1831, mas suas decisões ajudaram a definir os rumos do Brasil no século XIX.
-
     <br><br>
     Obrigado pela atenção!
   </div>
 </section>
 
 <div class="controles">
-  <button onclick="anterior()">❮ VOLTAR</button>
+  <button id="btnVoltar" onclick="anterior()">❮ VOLTAR</button>
   <span id="contador">1 / 12</span>
-  <button onclick="proximo()">AVANÇAR ❯</button>
+  <button id="btnAvancar" onclick="proximo()">AVANÇAR ❯</button>
 </div>
 
 </main>
@@ -534,16 +524,45 @@ footer {
 </footer>
 
 <script>
+const slides = Array.from(document.querySelectorAll(".slide"));
 let atual = 0;
-const slides = document.querySelectorAll(".slide");
+let falaAtual = null;
+let identificadorLeitura = 0;
 
-function mostrarSlide() {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle("active", i === atual);
+const explicacoes = [
+  "Vamos começar! O Primeiro Reinado foi o período em que Dom Pedro Primeiro governou o Brasil como imperador. Pense nele como o primeiro capítulo da história do Brasil independente.",
+  "Antes da Independência, o Brasil era controlado por Portugal. Em 1808, a família real veio para o Brasil. Isso mudou a importância do território. A antiga colônia passou a receber decisões importantes diretamente da corte.",
+  "Dom Pedro recebeu ordens para voltar a Portugal, mas decidiu permanecer no Brasil. Esse acontecimento ficou conhecido como Dia do Fico. Foi um passo importante para a Independência.",
+  "No dia 7 de setembro de 1822, Dom Pedro declarou a Independência. Isso significou que o Brasil deixou de ser politicamente subordinado a Portugal. Mas atenção: a Independência não acabou imediatamente com todos os problemas do país.",
+  "Dom Pedro Primeiro foi o primeiro imperador brasileiro. Seu grande desafio era unir as províncias e organizar o novo país. Era como montar uma grande estrutura de governo praticamente do começo.",
+  "A Constituição é o conjunto de regras fundamentais de um país. A Constituição de 1824 organizou os poderes, mas também deu ao imperador o Poder Moderador, que aumentava sua influência nas decisões políticas.",
+  "A sociedade brasileira era muito desigual. A escravidão continuava existindo e a riqueza estava concentrada nas mãos de poucos. Isso mostra que conquistar a Independência não significou conquistar igualdade para todos.",
+  "A Confederação do Equador foi uma revolta contra a centralização do poder. Os participantes queriam mais autonomia para as províncias. Um exemplo seria uma região querendo participar mais das decisões que afetavam sua população.",
+  "A Guerra da Cisplatina foi um conflito pela região que hoje corresponde ao Uruguai. A guerra custou caro ao Brasil e terminou com a independência da região em 1828.",
+  "O governo de Dom Pedro Primeiro foi perdendo apoio. Problemas econômicos, conflitos políticos e críticas às decisões do imperador aumentaram a insatisfação de grupos políticos.",
+  "Em 7 de abril de 1831, Dom Pedro Primeiro abdicou, ou seja, deixou o trono. Seu filho ainda era criança, então o Brasil passou a ser governado por regentes. Começava o Período Regencial.",
+  "Para concluir: o Primeiro Reinado foi essencial para organizar o Brasil independente. Tivemos Constituição, revoltas, guerra e mudanças políticas. Mesmo com muitos problemas, esse período ajudou a formar a história do nosso país. Obrigado por acompanhar!"
+];
+
+function pararAudio() {
+  identificadorLeitura++;
+  window.speechSynthesis.cancel();
+  falaAtual = null;
+}
+
+function atualizarSlide() {
+  pararAudio();
+
+  slides.forEach((slide, indice) => {
+    slide.classList.toggle("active", indice === atual);
   });
 
   document.getElementById("contador").textContent =
     (atual + 1) + " / " + slides.length;
+
+  document.getElementById("btnVoltar").disabled = atual === 0;
+  document.getElementById("btnAvancar").disabled =
+    atual === slides.length - 1;
 
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -551,21 +570,139 @@ function mostrarSlide() {
 function proximo() {
   if (atual < slides.length - 1) {
     atual++;
-    mostrarSlide();
+    atualizarSlide();
   }
 }
 
 function anterior() {
   if (atual > 0) {
     atual--;
-    mostrarSlide();
+    atualizarSlide();
   }
 }
 
-document.addEventListener("keydown", function(event) {
+function obterTextoDaPagina(indice) {
+  const slide = slides[indice];
+  const titulo = slide.querySelector("h2")?.innerText || "";
+  const elementos = slide.querySelectorAll("p, h3, li, .destaque");
+
+  let texto = titulo + ". ";
+
+  elementos.forEach(elemento => {
+    texto += elemento.innerText + ". ";
+  });
+
+  return texto;
+}
+
+function ouvirPagina(indice) {
+  pararAudio();
+
+  const minhaLeitura = identificadorLeitura;
+  const texto = obterTextoDaPagina(indice) +
+    " Agora vamos entender melhor. " +
+    explicacoes[indice];
+
+  const fala = new SpeechSynthesisUtterance(texto);
+
+  fala.lang = "pt-BR";
+  fala.rate = 0.9;
+  fala.pitch = 1;
+  fala.volume = 1;
+
+  const status = document.getElementById("audio-status-" + indice);
+  status.textContent = "🔊 Preparando a narração...";
+
+  fala.onend = () => {
+    if (minhaLeitura === identificadorLeitura) {
+      status.textContent = "✓ Leitura e explicação concluídas!";
+      falaAtual = null;
+    }
+  };
+
+  fala.onerror = () => {
+    if (minhaLeitura === identificadorLeitura) {
+      status.textContent = "Não foi possível reproduzir a voz.";
+      falaAtual = null;
+    }
+  };
+
+  falaAtual = fala;
+
+  const vozes = window.speechSynthesis.getVoices();
+  const vozPortugues = vozes.find(voz =>
+    voz.lang.toLowerCase() === "pt-br"
+  ) || vozes.find(voz =>
+    voz.lang.toLowerCase().startsWith("pt")
+  );
+
+  if (vozPortugues) {
+    fala.voice = vozPortugues;
+  }
+
+  status.textContent = "🔊 Lendo e explicando esta página...";
+  window.speechSynthesis.speak(fala);
+}
+
+function pausarAudio() {
+  if (window.speechSynthesis.speaking &&
+      !window.speechSynthesis.paused) {
+    window.speechSynthesis.pause();
+
+    const status = document.getElementById("audio-status-" + atual);
+    status.textContent = "⏸ Narração pausada.";
+  }
+}
+
+function continuarAudio() {
+  if (window.speechSynthesis.paused) {
+    window.speechSynthesis.resume();
+
+    const status = document.getElementById("audio-status-" + atual);
+    status.textContent = "🔊 Narração continuando...";
+  }
+}
+
+function criarControlesAudio() {
+  slides.forEach((slide, indice) => {
+    const controles = document.createElement("div");
+    controles.className = "audio-controles";
+
+    controles.innerHTML = `
+      <button type="button" onclick="ouvirPagina(${indice})">
+        🔊 OUVIR PÁGINA
+      </button>
+
+      <button type="button" onclick="pausarAudio()">
+        ⏸ PAUSAR
+      </button>
+
+      <button type="button" onclick="continuarAudio()">
+        ▶ CONTINUAR
+      </button>
+
+      <button type="button" onclick="pararAudio()">
+        ⏹ PARAR
+      </button>
+
+      <div class="audio-status" id="audio-status-${indice}">
+        Clique em OUVIR PÁGINA para começar.
+      </div>
+    `;
+
+    slide.appendChild(controles);
+  });
+}
+
+document.addEventListener("keydown", event => {
   if (event.key === "ArrowRight") proximo();
   if (event.key === "ArrowLeft") anterior();
 });
+
+window.addEventListener("beforeunload", pararAudio);
+
+criarControlesAudio();
+atualizarSlide();
 </script>
 
 </body>
