@@ -4,706 +4,377 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>O Primeiro Reinado do Brasil | 1822–1831</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+<title>O Primeiro Reinado do Brasil</title>
 
 <style>
-:root {
-  --papel: #ead9b5;
-  --marrom: #49301d;
-  --dourado: #a77b32;
-  --verde: #183c2d;
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Georgia,serif;
+  background:#211a12;
+  color:#382719;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
 }
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+.apresentacao{
+  width:100%;
+  max-width:1050px;
+  background:#e8d5ad;
+  border:8px double #8c642e;
+  box-shadow:0 0 35px #000;
+  min-height:650px;
+  position:relative;
+  overflow:hidden;
 }
-
-body {
-  min-height: 100vh;
-  color: var(--marrom);
-  background: radial-gradient(ellipse at center, #385342, #14271e);
-  font-family: 'Crimson Text', Georgia, serif;
+.topo{
+  background:#40301f;
+  color:#f2d79b;
+  text-align:center;
+  padding:18px;
+  border-bottom:5px solid #a77b3e;
 }
-
-header {
-  text-align: center;
-  padding: 25px 12px;
-  color: var(--papel);
-  background: linear-gradient(90deg, #142c20, #34533b, #142c20);
-  border-bottom: 4px solid var(--dourado);
+.topo h1{font-size:27px}
+.topo p{margin-top:5px;font-size:14px}
+.slide{
+  display:none;
+  padding:35px;
+  min-height:470px;
+  animation:entrada .5s ease;
 }
-
-header h1 {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(20px, 4vw, 34px);
-  letter-spacing: 2px;
+.slide.ativo{display:block}
+@keyframes entrada{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
 }
-
-header p {
-  margin-top: 8px;
-  font-size: 18px;
-  color: #e6c987;
+.slide h2{
+  color:#67451f;
+  font-size:29px;
+  margin-bottom:18px;
+  border-bottom:2px solid #a77b3e;
+  padding-bottom:10px;
 }
-
-main {
-  width: min(1000px, 94%);
-  margin: 30px auto;
+.slide p{
+  font-size:19px;
+  line-height:1.7;
+  margin-bottom:14px;
+  text-align:justify;
 }
-
-.slide {
-  display: none;
-  min-height: 600px;
-  padding: 42px;
-  position: relative;
-  overflow: hidden;
-  background: radial-gradient(ellipse at center, #f6ebce, #ead9b5 75%, #d8bf91);
-  border: 8px double var(--dourado);
-  outline: 2px solid #4b321f;
-  box-shadow: 0 15px 45px #0008;
-  animation: entrada .5s ease;
+.slide ul{
+  margin:10px 0 15px 25px;
+  font-size:18px;
+  line-height:1.8;
 }
-
-.slide::before,
-.slide::after {
-  content: "❧";
-  position: absolute;
-  color: #a77b32;
-  font-size: 38px;
-  opacity: .65;
-  pointer-events: none;
+.slide img{
+  width:100%;
+  max-height:290px;
+  object-fit:contain;
+  background:#d7c29a;
+  border:5px solid #96703b;
+  margin:15px 0;
 }
-
-.slide::before {
-  top: 8px;
-  left: 15px;
+.destaque{
+  background:#d4bd8d;
+  border-left:5px solid #79542a;
+  padding:14px;
+  margin:18px 0;
+  font-size:17px;
+  line-height:1.6;
 }
-
-.slide::after {
-  bottom: 8px;
-  right: 15px;
+.controles{
+  background:#40301f;
+  padding:18px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
 }
-
-.slide.active {
-  display: block;
+button{
+  background:#b18a4b;
+  color:#21180e;
+  border:2px solid #e4c98f;
+  padding:11px 17px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+  border-radius:5px;
 }
-
-@keyframes entrada {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+button:hover{background:#e1c17e}
+button:disabled{opacity:.4;cursor:not-allowed}
+#contador{
+  color:#f4dfb4;
+  font-size:16px;
+  padding:8px;
 }
-
-.numero {
-  font-family: 'Cinzel', serif;
-  color: #80602c;
-  font-size: 13px;
-  letter-spacing: 2px;
-  margin-bottom: 17px;
+.progresso{
+  height:8px;
+  background:#796044;
 }
-
-h2 {
-  font-family: 'Cinzel', serif;
-  color: #294632;
-  font-size: clamp(23px, 4vw, 34px);
-  text-align: center;
-  margin-bottom: 24px;
-  padding-bottom: 14px;
-  border-bottom: 2px solid #b08a48;
+#barra{
+  height:8px;
+  width:8.33%;
+  background:#d6ad61;
+  transition:width .3s;
 }
-
-h3 {
-  font-family: 'Cinzel', serif;
-  color: #614421;
-  margin: 20px 0 8px;
-  font-size: 20px;
+.rodape{
+  text-align:center;
+  color:#f1d9a9;
+  background:#40301f;
+  padding:12px;
+  font-size:13px;
 }
-
-p {
-  font-size: 20px;
-  line-height: 1.65;
-  margin: 13px 0;
-  text-align: justify;
-}
-
-ul {
-  padding-left: 25px;
-  font-size: 19px;
-  line-height: 1.7;
-  margin: 15px 0;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  max-height: 310px;
-  object-fit: contain;
-  margin: 22px auto;
-  border: 5px solid #9c7538;
-  padding: 4px;
-  background: #fff9e9;
-  box-shadow: 0 5px 14px #4b321f55;
-}
-
-.capa {
-  text-align: center;
-}
-
-.capa h2 {
-  font-size: clamp(28px, 5vw, 44px);
-  margin-top: 15px;
-}
-
-.capa .subtitulo {
-  text-align: center;
-  font-size: 24px;
-  color: #755126;
-}
-
-.coroa {
-  font-size: 90px;
-  margin: 20px;
-}
-
-.destaque {
-  background: #d8c18f;
-  border-left: 5px solid #876329;
-  padding: 15px 18px;
-  margin: 22px 0;
-  font-size: 19px;
-  line-height: 1.5;
-}
-
-.ilustracao {
-  font-size: 75px;
-  text-align: center;
-  margin: 20px;
-}
-
-.linha-tempo {
-  border-left: 3px solid #987039;
-  margin: 25px 0 25px 15px;
-  padding-left: 22px;
-}
-
-.linha-tempo p {
-  margin: 12px 0;
-}
-
-.linha-tempo strong {
-  color: #31523a;
-}
-
-/* CONTROLES DA APRESENTAÇÃO */
-
-.controles {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin: 25px 0;
-  color: #f4e8ca;
-}
-
-button {
-  padding: 13px 20px;
-  border: 2px solid #d5b36a;
-  background: linear-gradient(#6a4a26, #3d2b1c);
-  color: #fff0c8;
-  font-family: 'Cinzel', serif;
-  font-weight: bold;
-  cursor: pointer;
-  transition: .2s;
-}
-
-button:hover {
-  background: #987039;
-  transform: translateY(-2px);
-}
-
-button:disabled {
-  opacity: .4;
-  cursor: not-allowed;
-  transform: none;
-}
-
-#contador {
-  font-family: 'Cinzel', serif;
-  color: #f4dfad;
-  font-size: 16px;
-}
-
-/* NARRAÇÃO */
-
-.audio-controles {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 30px;
-  padding: 18px 8px 5px;
-  border-top: 2px solid #a77b32;
-}
-
-.audio-controles button {
-  font-size: 12px;
-  padding: 12px 15px;
-}
-
-.audio-status {
-  width: 100%;
-  text-align: center;
-  color: #624722;
-  font-size: 16px;
-  min-height: 25px;
-}
-
-footer {
-  text-align: center;
-  padding: 22px;
-  color: #e8d4a5;
-  font-size: 17px;
-}
-
-@media(max-width:600px) {
-  .slide {
-    padding: 28px 20px;
-    min-height: 650px;
-    border-width: 5px;
-  }
-
-  p, ul {
-    font-size: 18px;
-  }
-
-  .controles button {
-    padding: 11px 12px;
-    font-size: 12px;
-  }
-
-  .audio-controles button {
-    font-size: 10px;
-    padding: 10px;
-  }
+@media(max-width:600px){
+  body{padding:5px}
+  .apresentacao{border-width:4px}
+  .slide{padding:20px;min-height:520px}
+  .slide h2{font-size:23px}
+  .slide p{font-size:17px}
+  .slide ul{font-size:16px}
+  .topo h1{font-size:21px}
+  button{padding:10px;font-size:13px}
 }
 </style>
 </head>
 
 <body>
+<div class="apresentacao">
 
-<header>
+<header class="topo">
   <h1>O PRIMEIRO REINADO DO BRASIL</h1>
-  <p>História, política e formação do Brasil independente</p>
+  <p>História do Brasil • 1822 a 1831</p>
 </header>
+
+<div class="progresso"><div id="barra"></div></div>
 
 <main>
 
-<section class="slide active capa">
-  <div class="numero">APRESENTAÇÃO HISTÓRICA • 1822–1831</div>
-  <div class="coroa">👑</div>
-  <h2>O Primeiro Reinado</h2>
-  <p class="subtitulo">O nascimento do Império do Brasil</p>
-  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/DpedroI-brasil-full.jpg" alt="Retrato de Dom Pedro I">
-  <p>Um período de grandes mudanças, conflitos e decisões que marcaram a história brasileira.</p>
-  <div class="destaque">Período: 7 de setembro de 1822 a 7 de abril de 1831.</div>
+<section class="slide ativo">
+<h2>1. O Primeiro Reinado</h2>
+<p>O Primeiro Reinado foi o período da história do Brasil em que Dom Pedro I governou o país como imperador, entre 1822 e 1831.</p>
+<p>Esse período começou depois da Independência do Brasil, em 7 de setembro de 1822, e terminou quando Dom Pedro I abdicou do trono, em 7 de abril de 1831.</p>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/DpedroI-brasil-full.jpg" alt="Retrato de Dom Pedro I">
+<div class="destaque">O Primeiro Reinado foi importante porque marcou o início do Brasil como país independente e monarquia.</div>
 </section>
 
 <section class="slide">
-  <div class="numero">CAPÍTULO I • CONTEXTO HISTÓRICO</div>
-  <h2>O Brasil antes da Independência</h2>
-
-  <p>Antes de se tornar independente, o Brasil era uma colônia de Portugal. Durante muitos anos, as decisões políticas e econômicas mais importantes eram tomadas pela Coroa portuguesa.</p>
-
-  <p>Em 1808, a família real portuguesa chegou ao Brasil, fugindo das tropas de Napoleão Bonaparte. A presença da corte provocou grandes mudanças na colônia.</p>
-
-  <p>Os portos foram abertos às nações amigas, instituições foram criadas e o Rio de Janeiro passou a ser o centro político do Império Português.</p>
-
-  <h3>A Revolução Liberal do Porto</h3>
-  <p>Em 1820, uma revolução em Portugal exigiu mudanças políticas e a volta do rei. As Cortes portuguesas também queriam reduzir a autonomia que o Brasil havia conquistado.</p>
-
-  <div class="destaque">Esse cenário aumentou as tensões entre os interesses de Portugal e os grupos que defendiam a autonomia brasileira.</div>
+<h2>2. O Brasil antes da Independência</h2>
+<p>Antes de 1822, o Brasil era uma colônia de Portugal. Isso significava que muitas decisões políticas e econômicas eram controladas pela metrópole portuguesa.</p>
+<p>Em 1808, a família real portuguesa chegou ao Brasil, fugindo das tropas de Napoleão Bonaparte. A presença da corte trouxe mudanças importantes, como a abertura dos portos às nações amigas.</p>
+<p>Em 1820, aconteceu a Revolução Liberal do Porto, em Portugal. Os revolucionários exigiram o retorno de Dom João VI e queriam que o Brasil voltasse à condição de colônia.</p>
+<div class="destaque">Essas mudanças aumentaram as tensões entre os interesses de Portugal e os grupos que defendiam maior autonomia para o Brasil.</div>
 </section>
 
 <section class="slide">
-  <div class="numero">CAPÍTULO II • A INDEPENDÊNCIA</div>
-  <h2>O caminho para a Independência</h2>
-
-  <p>Em 1821, Dom João VI voltou para Portugal e deixou seu filho, Dom Pedro, como príncipe regente no Brasil.</p>
-
-  <p>As Cortes portuguesas exigiram que Dom Pedro também retornasse a Portugal. Entretanto, grupos políticos brasileiros passaram a pressioná-lo para permanecer no país.</p>
-
-  <h3>O Dia do Fico</h3>
-  <p>Em 9 de janeiro de 1822, Dom Pedro anunciou que ficaria no Brasil. Esse acontecimento ficou conhecido como Dia do Fico e representou um importante passo rumo à separação de Portugal.</p>
-
-  <div class="destaque">A decisão de permanecer no Brasil fortaleceu o movimento pela Independência.</div>
+<h2>3. O caminho para a Independência</h2>
+<p>Em 1821, Dom João VI voltou para Portugal e deixou seu filho, Dom Pedro, como príncipe regente do Brasil.</p>
+<p>As Cortes portuguesas passaram a exigir que Dom Pedro também retornasse a Portugal. Porém, grupos políticos brasileiros queriam que ele permanecesse no país.</p>
+<p>Em 9 de janeiro de 1822, Dom Pedro decidiu ficar no Brasil. Esse acontecimento ficou conhecido como Dia do Fico.</p>
+<ul>
+<li>1821: Dom Pedro torna-se príncipe regente.</li>
+<li>9 de janeiro de 1822: Dia do Fico.</li>
+<li>1822: Cresce o movimento pela Independência.</li>
+</ul>
+<div class="destaque">O Dia do Fico foi um passo importante para a separação política entre Brasil e Portugal.</div>
 </section>
 
 <section class="slide">
-  <div class="numero">CAPÍTULO III • 7 DE SETEMBRO</div>
-  <h2>A Independência do Brasil</h2>
-
-  <img src="https://en.wikisource.org/wiki/Special:FilePath/Pedro_Am%C3%A9rico_-_Independ%C3%AAncia_ou_Morte_-_cores_ajustadas.jpg" alt="Pintura Independência ou Morte">
-
-  <p>No dia 7 de setembro de 1822, às margens do riacho Ipiranga, em São Paulo, Dom Pedro declarou a separação política do Brasil em relação a Portugal.</p>
-
-  <p>O acontecimento ficou conhecido como Grito do Ipiranga e marcou oficialmente a Independência brasileira.</p>
-
-  <p>Em dezembro de 1822, Dom Pedro foi coroado imperador, recebendo o título de Dom Pedro I.</p>
-
-  <div class="destaque">A Independência não resolveu todos os problemas: o novo país ainda precisava organizar seu governo e conquistar reconhecimento internacional.</div>
+<h2>4. A Independência do Brasil</h2>
+<p>No dia 7 de setembro de 1822, Dom Pedro proclamou a Independência do Brasil, às margens do riacho Ipiranga, em São Paulo.</p>
+<p>Com isso, o Brasil deixou oficialmente de ser parte do Reino Unido de Portugal, Brasil e Algarves e passou a construir seu próprio governo.</p>
+<img src="https://en.wikisource.org/wiki/Special:FilePath/Pedro_Am%C3%A9rico_-_Independ%C3%AAncia_ou_Morte_-_cores_ajustadas.jpg" alt="Pintura Independência ou Morte">
+<p>A Independência não mudou imediatamente a vida de toda a população. A escravidão continuou e muitas desigualdades permaneceram.</p>
+<div class="destaque">A Independência marcou o nascimento do Brasil como Estado independente.</div>
 </section>
 
 <section class="slide">
-  <div class="numero">CAPÍTULO IV • O NOVO IMPÉRIO</div>
-  <h2>Dom Pedro I e o início do governo</h2>
-
-  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/DpedroI-brasil-full.jpg" alt="Retrato de Dom Pedro I">
-
-  <p>Dom Pedro I tornou-se o primeiro imperador do Brasil em 1822. Seu governo começou com o desafio de organizar um país independente, formado por províncias com interesses diferentes.</p>
-
-  <p>O novo governo precisava criar leis, estabelecer instituições, organizar as finanças e manter a unidade territorial.</p>
-
-  <h3>Os desafios do imperador</h3>
-  <ul>
-    <li>Organizar a administração do novo país.</li>
-    <li>Conseguir reconhecimento de outros países.</li>
-    <li>Manter a unidade das províncias.</li>
-    <li>Enfrentar disputas entre grupos políticos.</li>
-  </ul>
+<h2>5. Dom Pedro I e o início do governo</h2>
+<p>Depois da Independência, Dom Pedro foi aclamado imperador do Brasil em outubro de 1822 e coroado em dezembro do mesmo ano.</p>
+<p>Ele recebeu o título de Dom Pedro I, Imperador Constitucional e Defensor Perpétuo do Brasil.</p>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/DpedroI-brasil-full.jpg" alt="Dom Pedro I">
+<p>Seu governo enfrentou dificuldades desde o começo. Era necessário organizar as instituições do novo país, conseguir reconhecimento internacional e manter a união das províncias.</p>
+<div class="destaque">O Brasil tornou-se uma monarquia independente, governada por um imperador.</div>
 </section>
 
 <section class="slide">
-  <div class="numero">CAPÍTULO V • ORGANIZAÇÃO POLÍTICA</div>
-  <h2>A Constituição de 1824</h2>
-
-  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Juramento_imperial_%C3%A0_Constitui%C3%A7%C3%A3o_de_1824_(2).jpg" alt="Juramento à Constituição de 1824">
-
-  <p>Em 1823, foi reunida uma Assembleia Constituinte para elaborar a primeira Constituição do Brasil independente.</p>
-
-  <p>As divergências entre os deputados e Dom Pedro I levaram ao fechamento da Assembleia em novembro de 1823, episódio conhecido como Noite da Agonia.</p>
-
-  <p>Em 25 de março de 1824, o imperador outorgou a primeira Constituição brasileira, ou seja, ela foi imposta pelo governo imperial.</p>
-
-  <h3>Os quatro poderes</h3>
-  <ul>
-    <li>Executivo: administrava o governo.</li>
-    <li>Legislativo: elaborava as leis.</li>
-    <li>Judiciário: aplicava a Justiça.</li>
-    <li>Moderador: permitia ao imperador interferir nos outros poderes.</li>
-  </ul>
+<h2>6. A Constituição de 1824</h2>
+<p>Em 1823, foi criada uma Assembleia Constituinte para elaborar a primeira Constituição brasileira. Porém, Dom Pedro I discordou de parte dos deputados e dissolveu a Assembleia.</p>
+<p>Em 25 de março de 1824, o imperador outorgou a primeira Constituição do Brasil, ou seja, ela foi imposta pelo governo.</p>
+<p>A Constituição estabeleceu quatro poderes:</p>
+<ul>
+<li>Executivo: administrava o governo.</li>
+<li>Legislativo: elaborava as leis.</li>
+<li>Judiciário: julgava de acordo com as leis.</li>
+<li>Moderador: permitia ao imperador interferir no funcionamento dos outros poderes.</li>
+</ul>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Juramento_imperial_%C3%A0_Constitui%C3%A7%C3%A3o_de_1824_(2).jpg" alt="Juramento à Constituição de 1824">
+<div class="destaque">O Poder Moderador aumentava a autoridade de Dom Pedro I sobre o governo.</div>
 </section>
 
 <section class="slide">
-  <div class="numero">CAPÍTULO VI • SOCIEDADE E ECONOMIA</div>
-  <h2>Como era o Brasil nessa época?</h2>
-
-  <div class="ilustracao">🏛️ 🌾 ⚓</div>
-
-  <p>A sociedade brasileira do Primeiro Reinado era marcada por grandes desigualdades. A escravidão continuava existindo e grande parte da riqueza estava concentrada nas mãos de proprietários de terras e comerciantes.</p>
-
-  <p>A economia dependia principalmente da agricultura de exportação, com produtos como açúcar, algodão e café, que começava a ganhar importância.</p>
-
-  <h3>Características sociais</h3>
-  <ul>
-    <li>A escravidão fazia parte da estrutura econômica.</li>
-    <li>A maioria da população tinha poucos direitos políticos.</li>
-    <li>Os grandes proprietários possuíam forte influência.</li>
-    <li>Havia diferenças econômicas entre as províncias.</li>
-  </ul>
-
-  <div class="destaque">Apesar da Independência política, muitas desigualdades herdadas do período colonial permaneceram.</div>
+<h2>7. A sociedade e a economia</h2>
+<p>Durante o Primeiro Reinado, a sociedade brasileira era marcada por grandes desigualdades. A escravidão ainda existia e grande parte da riqueza estava concentrada nas mãos de proprietários de terras e pessoas influentes.</p>
+<p>A economia dependia principalmente da agricultura de exportação, com produtos como açúcar, algodão e café, que começava a ganhar importância.</p>
+<ul>
+<li>A escravidão continuava sendo uma realidade.</li>
+<li>A maior parte da população tinha poucos direitos políticos.</li>
+<li>A riqueza era distribuída de maneira muito desigual.</li>
+</ul>
+<div class="destaque">Apesar da Independência, muitos problemas sociais e econômicos continuaram no país.</div>
 </section>
 
 <section class="slide">
-  <div class="numero">CAPÍTULO VII • REVOLTAS</div>
-  <h2>A Confederação do Equador</h2>
-
-  <div class="ilustracao">⚔️</div>
-
-  <p>Em 1824, ocorreu a Confederação do Equador, um movimento revolucionário que começou em Pernambuco e recebeu apoio de outras áreas do Nordeste.</p>
-
-  <p>Os participantes criticavam o autoritarismo de Dom Pedro I, a centralização política e a Constituição outorgada pelo imperador.</p>
-
-  <p>O movimento defendia maior autonomia para as províncias e estabeleceu um governo republicano em parte da região.</p>
-
-  <h3>O resultado</h3>
-  <p>O governo imperial enviou forças militares para combater os revoltosos. O movimento foi derrotado e seus participantes sofreram forte repressão.</p>
-
-  <div class="destaque">A Confederação do Equador mostrou que existia forte oposição ao governo de Dom Pedro I.</div>
+<h2>8. A Confederação do Equador</h2>
+<p>Em 1824, ocorreu uma revolta conhecida como Confederação do Equador, principalmente em Pernambuco e em outras províncias do Nordeste.</p>
+<p>Os revoltosos criticavam o autoritarismo de Dom Pedro I, a Constituição de 1824 e a concentração de poder nas mãos do imperador.</p>
+<p>O movimento defendia maior autonomia para as províncias e, entre seus participantes, havia defensores de um governo republicano.</p>
+<p>O governo imperial reprimiu a revolta com força militar.</p>
+<div class="destaque">A Confederação do Equador mostrou que existia forte oposição ao governo imperial.</div>
 </section>
 
 <section class="slide">
-  <div class="numero">CAPÍTULO VIII • CONFLITO INTERNACIONAL</div>
-  <h2>A Guerra da Cisplatina</h2>
-
-  <div class="ilustracao">🚢 ⚓</div>
-
-  <p>A Província Cisplatina, atual território do Uruguai, fazia parte do Império do Brasil. Entretanto, havia grupos que defendiam sua separação e união às Províncias Unidas do Rio da Prata.</p>
-
-  <p>Em 1825, começou uma guerra entre o Brasil e as Províncias Unidas. O conflito durou até 1828 e provocou grandes gastos e dificuldades para o governo imperial.</p>
-
-  <h3>O desfecho</h3>
-  <p>Com a mediação da Inglaterra, foi firmado um acordo que levou à independência da região. Em 1828, nasceu o Uruguai como país independente.</p>
-
-  <div class="destaque">A perda da Cisplatina aumentou as críticas ao governo de Dom Pedro I.</div>
+<h2>9. A Guerra da Cisplatina</h2>
+<p>Entre 1825 e 1828, o Brasil enfrentou uma guerra contra as Províncias Unidas do Rio da Prata pelo controle da região da Cisplatina, atual Uruguai.</p>
+<p>O conflito trouxe gastos elevados e dificuldades econômicas para o Império brasileiro.</p>
+<p>Em 1828, um acordo encerrou a guerra e reconheceu a independência da região, que passou a formar o Uruguai.</p>
+<div class="destaque">A perda da Cisplatina aumentou as críticas ao governo de Dom Pedro I.</div>
 </section>
 
 <section class="slide">
-  <div class="numero">CAPÍTULO IX • CRISE POLÍTICA</div>
-  <h2>O enfraquecimento do governo</h2>
-
-  <div class="ilustracao">📜 ⚖️</div>
-
-  <p>Com o passar dos anos, Dom Pedro I enfrentou uma oposição cada vez maior. As decisões centralizadoras do imperador desagradavam a diversos grupos políticos.</p>
-
-  <p>A Guerra da Cisplatina, os problemas financeiros e os conflitos entre brasileiros e portugueses também contribuíram para a perda de apoio ao governo.</p>
-
-  <h3>O aumento das críticas</h3>
-  <p>A imprensa e os grupos políticos passaram a questionar as atitudes do imperador. A situação ficou ainda mais complicada após a crise sucessória em Portugal, envolvendo a família de Dom Pedro I.</p>
-
-  <div class="destaque">A combinação de dificuldades econômicas, conflitos políticos e perda de apoio tornou o governo cada vez mais instável.</div>
+<h2>10. A crise política</h2>
+<p>Com o passar dos anos, Dom Pedro I perdeu apoio de diferentes grupos políticos e de parte da população.</p>
+<p>Entre os motivos estavam o autoritarismo do governo, os gastos com conflitos, as dificuldades econômicas e os conflitos entre brasileiros e portugueses.</p>
+<p>A morte de Dom João VI, em Portugal, também trouxe problemas políticos, pois Dom Pedro I passou a ser envolvido na disputa pelo trono português.</p>
+<div class="destaque">A crise política enfraqueceu o imperador e aumentou a pressão para que ele deixasse o poder.</div>
 </section>
 
 <section class="slide">
-  <div class="numero">CAPÍTULO X • 1831</div>
-  <h2>A abdicação de Dom Pedro I</h2>
-
-  <div class="ilustracao">👑 📜</div>
-
-  <p>Em 7 de abril de 1831, Dom Pedro I decidiu abandonar o trono brasileiro. Esse acontecimento ficou conhecido como abdicação.</p>
-
-  <p>Ele deixou o poder em favor de seu filho, Pedro de Alcântara, que tinha apenas cinco anos de idade e futuramente seria conhecido como Dom Pedro II.</p>
-
-  <p>Como o herdeiro ainda era criança, o Brasil passou a ser governado por regentes. Assim começou o Período Regencial.</p>
-
-  <div class="destaque">A abdicação marcou o fim do Primeiro Reinado e abriu uma nova fase na história política do Brasil.</div>
+<h2>11. A abdicação de Dom Pedro I</h2>
+<p>Em 7 de abril de 1831, Dom Pedro I abdicou do trono brasileiro, deixando o poder em favor de seu filho, Dom Pedro de Alcântara, que tinha apenas cinco anos.</p>
+<p>Como o herdeiro ainda era criança, o Brasil passou a ser governado por regentes. Esse período ficou conhecido como Período Regencial.</p>
+<p>Dom Pedro I voltou para Portugal, onde participou da disputa pelo trono português.</p>
+<div class="destaque">A abdicação marcou o fim do Primeiro Reinado e o início do Período Regencial.</div>
 </section>
 
 <section class="slide">
-  <div class="numero">CAPÍTULO FINAL • CONCLUSÃO</div>
-  <h2>O legado do Primeiro Reinado</h2>
-
-  <div class="ilustracao">🇧🇷 👑</div>
-
-  <p>O Primeiro Reinado foi um período fundamental para a construção do Brasil como país independente. Durante esses anos, foram criadas instituições políticas, uma Constituição e as bases do governo imperial.</p>
-
-  <p>Ao mesmo tempo, o período foi marcado por conflitos, revoltas, dificuldades econômicas e disputas pelo poder.</p>
-
-  <h3>Linha do tempo</h3>
-  <div class="linha-tempo">
-    <p><strong>1822:</strong> Independência do Brasil.</p>
-    <p><strong>1823:</strong> Assembleia Constituinte.</p>
-    <p><strong>1824:</strong> Constituição e Confederação do Equador.</p>
-    <p><strong>1825–1828:</strong> Guerra da Cisplatina.</p>
-    <p><strong>1828:</strong> Independência do Uruguai.</p>
-    <p><strong>1831:</strong> Abdicação de Dom Pedro I.</p>
-  </div>
-
-  <div class="destaque">
-    O Primeiro Reinado terminou em 1831, mas suas decisões ajudaram a definir os rumos do Brasil no século XIX.
-    <br><br>
-    Obrigado pela atenção!
-  </div>
-</section>
-
-<div class="controles">
-  <button id="btnVoltar" onclick="anterior()">❮ VOLTAR</button>
-  <span id="contador">1 / 12</span>
-  <button id="btnAvancar" onclick="proximo()">AVANÇAR ❯</button>
+<h2>12. Legado e conclusão</h2>
+<p>O Primeiro Reinado foi um período fundamental para a formação do Brasil independente. Nele foram organizadas as primeiras instituições políticas do país e estabelecida a Constituição de 1824.</p>
+<p>Por outro lado, o governo enfrentou revoltas, conflitos, dificuldades econômicas e forte oposição política.</p>
+<p>O período terminou em 1831, com a abdicação de Dom Pedro I.</p>
+<div class="destaque">
+<strong>Linha do tempo:</strong><br>
+1822 — Independência do Brasil.<br>
+1824 — Constituição e Confederação do Equador.<br>
+1825–1828 — Guerra da Cisplatina.<br>
+1831 — Abdicação de Dom Pedro I.
 </div>
+<p><strong>Conclusão:</strong> o Primeiro Reinado ajudou a construir o Brasil como país independente, mas também revelou muitos desafios políticos e sociais.</p>
+</section>
 
 </main>
 
-<footer>
-  ✦ Trabalho escolar de História ✦<br>
-  O Primeiro Reinado do Brasil — 1822 a 1831
+<div class="controles">
+<button onclick="anterior()">◀ VOLTAR</button>
+<span id="contador">1 / 12</span>
+<button onclick="proximo()">AVANÇAR ▶</button>
+<button onclick="ouvir()">🔊 OUVIR PÁGINA</button>
+<button onclick="pausar()">⏸ PAUSAR</button>
+<button onclick="continuar()">▶ CONTINUAR</button>
+<button onclick="parar()">⏹ PARAR</button>
+</div>
+
+<footer class="rodape">
+Apresentação escolar • História do Brasil • Primeiro Reinado
 </footer>
 
+</div>
+
 <script>
-const slides = Array.from(document.querySelectorAll(".slide"));
 let atual = 0;
-let falaAtual = null;
-let identificadorLeitura = 0;
+const slides = document.querySelectorAll(".slide");
 
 const explicacoes = [
-  "Vamos começar! O Primeiro Reinado foi o período em que Dom Pedro Primeiro governou o Brasil como imperador. Pense nele como o primeiro capítulo da história do Brasil independente.",
-  "Antes da Independência, o Brasil era controlado por Portugal. Em 1808, a família real veio para o Brasil. Isso mudou a importância do território. A antiga colônia passou a receber decisões importantes diretamente da corte.",
-  "Dom Pedro recebeu ordens para voltar a Portugal, mas decidiu permanecer no Brasil. Esse acontecimento ficou conhecido como Dia do Fico. Foi um passo importante para a Independência.",
-  "No dia 7 de setembro de 1822, Dom Pedro declarou a Independência. Isso significou que o Brasil deixou de ser politicamente subordinado a Portugal. Mas atenção: a Independência não acabou imediatamente com todos os problemas do país.",
-  "Dom Pedro Primeiro foi o primeiro imperador brasileiro. Seu grande desafio era unir as províncias e organizar o novo país. Era como montar uma grande estrutura de governo praticamente do começo.",
-  "A Constituição é o conjunto de regras fundamentais de um país. A Constituição de 1824 organizou os poderes, mas também deu ao imperador o Poder Moderador, que aumentava sua influência nas decisões políticas.",
-  "A sociedade brasileira era muito desigual. A escravidão continuava existindo e a riqueza estava concentrada nas mãos de poucos. Isso mostra que conquistar a Independência não significou conquistar igualdade para todos.",
-  "A Confederação do Equador foi uma revolta contra a centralização do poder. Os participantes queriam mais autonomia para as províncias. Um exemplo seria uma região querendo participar mais das decisões que afetavam sua população.",
-  "A Guerra da Cisplatina foi um conflito pela região que hoje corresponde ao Uruguai. A guerra custou caro ao Brasil e terminou com a independência da região em 1828.",
-  "O governo de Dom Pedro Primeiro foi perdendo apoio. Problemas econômicos, conflitos políticos e críticas às decisões do imperador aumentaram a insatisfação de grupos políticos.",
-  "Em 7 de abril de 1831, Dom Pedro Primeiro abdicou, ou seja, deixou o trono. Seu filho ainda era criança, então o Brasil passou a ser governado por regentes. Começava o Período Regencial.",
-  "Para concluir: o Primeiro Reinado foi essencial para organizar o Brasil independente. Tivemos Constituição, revoltas, guerra e mudanças políticas. Mesmo com muitos problemas, esse período ajudou a formar a história do nosso país. Obrigado por acompanhar!"
+"Vamos começar! O Primeiro Reinado foi o início do Brasil independente, com Dom Pedro Primeiro no poder. Pense nele como o primeiro capítulo da história do Brasil depois da separação de Portugal.",
+"Antes da Independência, o Brasil era controlado por Portugal. A chegada da família real em 1808 mudou bastante a situação. Imagine como seria se as principais decisões da sua cidade fossem tomadas por outro país.",
+"Dom Pedro recebeu ordens para voltar a Portugal, mas decidiu permanecer no Brasil. Esse momento ficou conhecido como Dia do Fico. Foi um passo importante para a Independência.",
+"A Independência aconteceu em 7 de setembro de 1822. A partir daí, o Brasil começou a organizar seu próprio governo, sem depender politicamente de Portugal.",
+"Dom Pedro Primeiro tornou-se o primeiro imperador do Brasil. Ele precisava organizar um país que tinha acabado de conquistar sua Independência.",
+"A Constituição é um conjunto de regras fundamentais de um país. A Constituição de 1824 organizou os poderes e deu ao imperador o Poder Moderador.",
+"Mesmo depois da Independência, a vida continuou muito difícil para grande parte da população. A escravidão existia e a riqueza era concentrada nas mãos de poucos.",
+"A Confederação do Equador foi uma revolta contra o governo de Dom Pedro Primeiro. Os participantes queriam mais autonomia para as províncias.",
+"A Guerra da Cisplatina foi um conflito que custou muito dinheiro ao Brasil. No final, a região tornou-se um país independente: o Uruguai.",
+"Dom Pedro Primeiro começou a perder apoio. Problemas econômicos, conflitos políticos e críticas ao seu governo aumentaram a crise.",
+"Em 1831, Dom Pedro Primeiro deixou o trono. Seu filho ainda era criança, então o Brasil passou a ser governado por regentes.",
+"Para concluir, o Primeiro Reinado foi importante para formar o Brasil independente. Mas também foi um período de conflitos, desigualdades e dificuldades."
 ];
 
-function pararAudio() {
-  identificadorLeitura++;
-  window.speechSynthesis.cancel();
-  falaAtual = null;
+function atualizar(){
+  slides.forEach((s,i)=>s.classList.toggle("ativo",i===atual));
+  document.getElementById("contador").textContent=(atual+1)+" / "+slides.length;
+  document.getElementById("barra").style.width=((atual+1)/slides.length*100)+"%";
+  parar();
 }
 
-function atualizarSlide() {
-  pararAudio();
-
-  slides.forEach((slide, indice) => {
-    slide.classList.toggle("active", indice === atual);
-  });
-
-  document.getElementById("contador").textContent =
-    (atual + 1) + " / " + slides.length;
-
-  document.getElementById("btnVoltar").disabled = atual === 0;
-  document.getElementById("btnAvancar").disabled =
-    atual === slides.length - 1;
-
-  window.scrollTo({ top: 0, behavior: "smooth" });
+function proximo(){
+  if(atual<slides.length-1){atual++;atualizar();}
+}
+function anterior(){
+  if(atual>0){atual--;atualizar();}
 }
 
-function proximo() {
-  if (atual < slides.length - 1) {
-    atual++;
-    atualizarSlide();
+function escolherVoz(){
+  const vozes = speechSynthesis.getVoices();
+  return vozes.find(v=>v.lang.toLowerCase()==="pt-br")
+      || vozes.find(v=>v.lang.toLowerCase().startsWith("pt"))
+      || null;
+}
+
+function ouvir(){
+  parar();
+
+  const slide = slides[atual];
+  const texto = slide.innerText.replace(/\s+/g," ").trim();
+  const fala = texto + ". Explicando de uma maneira mais simples: " + explicacoes[atual];
+
+  const mensagem = new SpeechSynthesisUtterance(fala);
+  mensagem.lang = "pt-BR";
+  mensagem.rate = 1.2;
+  mensagem.pitch = 1;
+  mensagem.volume = 1;
+
+  const voz = escolherVoz();
+  if(voz) mensagem.voice = voz;
+
+  speechSynthesis.speak(mensagem);
+}
+
+function pausar(){
+  if(speechSynthesis.speaking && !speechSynthesis.paused){
+    speechSynthesis.pause();
   }
 }
 
-function anterior() {
-  if (atual > 0) {
-    atual--;
-    atualizarSlide();
+function continuar(){
+  if(speechSynthesis.paused){
+    speechSynthesis.resume();
   }
 }
 
-function obterTextoDaPagina(indice) {
-  const slide = slides[indice];
-  const titulo = slide.querySelector("h2")?.innerText || "";
-  const elementos = slide.querySelectorAll("p, h3, li, .destaque");
-
-  let texto = titulo + ". ";
-
-  elementos.forEach(elemento => {
-    texto += elemento.innerText + ". ";
-  });
-
-  return texto;
+function parar(){
+  speechSynthesis.cancel();
 }
 
-function ouvirPagina(indice) {
-  pararAudio();
+speechSynthesis.onvoiceschanged = () => {};
 
-  const minhaLeitura = identificadorLeitura;
-  const texto = obterTextoDaPagina(indice) +
-    " Agora vamos entender melhor. " +
-    explicacoes[indice];
-
-  const fala = new SpeechSynthesisUtterance(texto);
-
-  fala.lang = "pt-BR";
-  fala.rate = 0.9;
-  fala.pitch = 1;
-  fala.volume = 1;
-
-  const status = document.getElementById("audio-status-" + indice);
-  status.textContent = "🔊 Preparando a narração...";
-
-  fala.onend = () => {
-    if (minhaLeitura === identificadorLeitura) {
-      status.textContent = "✓ Leitura e explicação concluídas!";
-      falaAtual = null;
-    }
-  };
-
-  fala.onerror = () => {
-    if (minhaLeitura === identificadorLeitura) {
-      status.textContent = "Não foi possível reproduzir a voz.";
-      falaAtual = null;
-    }
-  };
-
-  falaAtual = fala;
-
-  const vozes = window.speechSynthesis.getVoices();
-  const vozPortugues = vozes.find(voz =>
-    voz.lang.toLowerCase() === "pt-br"
-  ) || vozes.find(voz =>
-    voz.lang.toLowerCase().startsWith("pt")
-  );
-
-  if (vozPortugues) {
-    fala.voice = vozPortugues;
+document.addEventListener("keydown",e=>{
+  if(e.key==="ArrowRight")proximo();
+  if(e.key==="ArrowLeft")anterior();
+  if(e.key===" "){
+    e.preventDefault();
+    ouvir();
   }
-
-  status.textContent = "🔊 Lendo e explicando esta página...";
-  window.speechSynthesis.speak(fala);
-}
-
-function pausarAudio() {
-  if (window.speechSynthesis.speaking &&
-      !window.speechSynthesis.paused) {
-    window.speechSynthesis.pause();
-
-    const status = document.getElementById("audio-status-" + atual);
-    status.textContent = "⏸ Narração pausada.";
-  }
-}
-
-function continuarAudio() {
-  if (window.speechSynthesis.paused) {
-    window.speechSynthesis.resume();
-
-    const status = document.getElementById("audio-status-" + atual);
-    status.textContent = "🔊 Narração continuando...";
-  }
-}
-
-function criarControlesAudio() {
-  slides.forEach((slide, indice) => {
-    const controles = document.createElement("div");
-    controles.className = "audio-controles";
-
-    controles.innerHTML = `
-      <button type="button" onclick="ouvirPagina(${indice})">
-        🔊 OUVIR PÁGINA
-      </button>
-
-      <button type="button" onclick="pausarAudio()">
-        ⏸ PAUSAR
-      </button>
-
-      <button type="button" onclick="continuarAudio()">
-        ▶ CONTINUAR
-      </button>
-
-      <button type="button" onclick="pararAudio()">
-        ⏹ PARAR
-      </button>
-
-      <div class="audio-status" id="audio-status-${indice}">
-        Clique em OUVIR PÁGINA para começar.
-      </div>
-    `;
-
-    slide.appendChild(controles);
-  });
-}
-
-document.addEventListener("keydown", event => {
-  if (event.key === "ArrowRight") proximo();
-  if (event.key === "ArrowLeft") anterior();
 });
-
-window.addEventListener("beforeunload", pararAudio);
-
-criarControlesAudio();
-atualizarSlide();
 </script>
-
 </body>
 </html>
