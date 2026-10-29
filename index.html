@@ -5,7 +5,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>O Primeiro Reinado do Brasil</title>
-
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{
@@ -16,7 +15,7 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:20px;
+  padding:15px;
 }
 .apresentacao{
   width:100%;
@@ -25,8 +24,6 @@ body{
   border:8px double #8c642e;
   box-shadow:0 0 35px #000;
   min-height:650px;
-  position:relative;
-  overflow:hidden;
 }
 .topo{
   background:#40301f;
@@ -36,16 +33,16 @@ body{
   border-bottom:5px solid #a77b3e;
 }
 .topo h1{font-size:27px}
-.topo p{margin-top:5px;font-size:14px}
+.topo p{margin-top:5px}
 .slide{
   display:none;
   padding:35px;
   min-height:470px;
-  animation:entrada .5s ease;
+  animation:entrada .4s ease;
 }
 .slide.ativo{display:block}
 @keyframes entrada{
-  from{opacity:0;transform:translateY(12px)}
+  from{opacity:0;transform:translateY(10px)}
   to{opacity:1;transform:translateY(0)}
 }
 .slide h2{
@@ -91,32 +88,46 @@ body{
   gap:10px;
   flex-wrap:wrap;
 }
-button{
+button,select{
   background:#b18a4b;
   color:#21180e;
   border:2px solid #e4c98f;
-  padding:11px 17px;
-  font-size:15px;
+  padding:11px 13px;
+  font-size:14px;
   font-weight:bold;
   cursor:pointer;
   border-radius:5px;
+  max-width:100%;
 }
 button:hover{background:#e1c17e}
-button:disabled{opacity:.4;cursor:not-allowed}
-#contador{
-  color:#f4dfb4;
-  font-size:16px;
-  padding:8px;
-}
-.progresso{
-  height:8px;
-  background:#796044;
-}
+#contador{color:#f4dfb4;padding:8px}
+.progresso{height:8px;background:#796044}
 #barra{
   height:8px;
   width:8.33%;
   background:#d6ad61;
   transition:width .3s;
+}
+.seletor-voz{
+  background:#302318;
+  color:#f2d79b;
+  padding:15px;
+  text-align:center;
+}
+.seletor-voz label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:bold;
+}
+#voz{
+  width:100%;
+  max-width:550px;
+  background:#e8d5ad;
+}
+#status{
+  margin-top:8px;
+  font-size:13px;
+  color:#f2d79b;
 }
 .rodape{
   text-align:center;
@@ -133,43 +144,41 @@ button:disabled{opacity:.4;cursor:not-allowed}
   .slide p{font-size:17px}
   .slide ul{font-size:16px}
   .topo h1{font-size:21px}
-  button{padding:10px;font-size:13px}
+  button{padding:10px;font-size:12px}
 }
 </style>
 </head>
-
 <body>
-<div class="apresentacao">
 
+<div class="apresentacao">
 <header class="topo">
-  <h1>O PRIMEIRO REINADO DO BRASIL</h1>
-  <p>História do Brasil • 1822 a 1831</p>
+<h1>O PRIMEIRO REINADO DO BRASIL</h1>
+<p>História do Brasil • 1822 a 1831</p>
 </header>
 
 <div class="progresso"><div id="barra"></div></div>
 
 <main>
-
 <section class="slide ativo">
 <h2>1. O Primeiro Reinado</h2>
 <p>O Primeiro Reinado foi o período da história do Brasil em que Dom Pedro I governou o país como imperador, entre 1822 e 1831.</p>
 <p>Esse período começou depois da Independência do Brasil, em 7 de setembro de 1822, e terminou quando Dom Pedro I abdicou do trono, em 7 de abril de 1831.</p>
 <img src="https://commons.wikimedia.org/wiki/Special:FilePath/DpedroI-brasil-full.jpg" alt="Retrato de Dom Pedro I">
-<div class="destaque">O Primeiro Reinado foi importante porque marcou o início do Brasil como país independente e monarquia.</div>
+<div class="destaque">O Primeiro Reinado marcou o início do Brasil como país independente e monarquia.</div>
 </section>
 
 <section class="slide">
 <h2>2. O Brasil antes da Independência</h2>
-<p>Antes de 1822, o Brasil era uma colônia de Portugal. Isso significava que muitas decisões políticas e econômicas eram controladas pela metrópole portuguesa.</p>
-<p>Em 1808, a família real portuguesa chegou ao Brasil, fugindo das tropas de Napoleão Bonaparte. A presença da corte trouxe mudanças importantes, como a abertura dos portos às nações amigas.</p>
+<p>Antes de 1822, o Brasil era uma colônia de Portugal. Muitas decisões políticas e econômicas eram controladas pelos portugueses.</p>
+<p>Em 1808, a família real portuguesa chegou ao Brasil, fugindo das tropas de Napoleão Bonaparte. A abertura dos portos foi uma das mudanças importantes desse período.</p>
 <p>Em 1820, aconteceu a Revolução Liberal do Porto, em Portugal. Os revolucionários exigiram o retorno de Dom João VI e queriam que o Brasil voltasse à condição de colônia.</p>
-<div class="destaque">Essas mudanças aumentaram as tensões entre os interesses de Portugal e os grupos que defendiam maior autonomia para o Brasil.</div>
+<div class="destaque">Essas mudanças aumentaram as tensões entre Portugal e os grupos que defendiam maior autonomia para o Brasil.</div>
 </section>
 
 <section class="slide">
 <h2>3. O caminho para a Independência</h2>
 <p>Em 1821, Dom João VI voltou para Portugal e deixou seu filho, Dom Pedro, como príncipe regente do Brasil.</p>
-<p>As Cortes portuguesas passaram a exigir que Dom Pedro também retornasse a Portugal. Porém, grupos políticos brasileiros queriam que ele permanecesse no país.</p>
+<p>As Cortes portuguesas exigiram que Dom Pedro também retornasse. Porém, grupos brasileiros queriam que ele permanecesse no país.</p>
 <p>Em 9 de janeiro de 1822, Dom Pedro decidiu ficar no Brasil. Esse acontecimento ficou conhecido como Dia do Fico.</p>
 <ul>
 <li>1821: Dom Pedro torna-se príncipe regente.</li>
@@ -182,7 +191,7 @@ button:disabled{opacity:.4;cursor:not-allowed}
 <section class="slide">
 <h2>4. A Independência do Brasil</h2>
 <p>No dia 7 de setembro de 1822, Dom Pedro proclamou a Independência do Brasil, às margens do riacho Ipiranga, em São Paulo.</p>
-<p>Com isso, o Brasil deixou oficialmente de ser parte do Reino Unido de Portugal, Brasil e Algarves e passou a construir seu próprio governo.</p>
+<p>Com isso, o Brasil deixou de fazer parte do Reino Unido de Portugal, Brasil e Algarves e começou a organizar seu próprio governo.</p>
 <img src="https://en.wikisource.org/wiki/Special:FilePath/Pedro_Am%C3%A9rico_-_Independ%C3%AAncia_ou_Morte_-_cores_ajustadas.jpg" alt="Pintura Independência ou Morte">
 <p>A Independência não mudou imediatamente a vida de toda a população. A escravidão continuou e muitas desigualdades permaneceram.</p>
 <div class="destaque">A Independência marcou o nascimento do Brasil como Estado independente.</div>
@@ -193,7 +202,7 @@ button:disabled{opacity:.4;cursor:not-allowed}
 <p>Depois da Independência, Dom Pedro foi aclamado imperador do Brasil em outubro de 1822 e coroado em dezembro do mesmo ano.</p>
 <p>Ele recebeu o título de Dom Pedro I, Imperador Constitucional e Defensor Perpétuo do Brasil.</p>
 <img src="https://commons.wikimedia.org/wiki/Special:FilePath/DpedroI-brasil-full.jpg" alt="Dom Pedro I">
-<p>Seu governo enfrentou dificuldades desde o começo. Era necessário organizar as instituições do novo país, conseguir reconhecimento internacional e manter a união das províncias.</p>
+<p>Seu governo enfrentou dificuldades desde o começo. Era necessário organizar as instituições do novo país e manter a união das províncias.</p>
 <div class="destaque">O Brasil tornou-se uma monarquia independente, governada por um imperador.</div>
 </section>
 
@@ -214,7 +223,7 @@ button:disabled{opacity:.4;cursor:not-allowed}
 
 <section class="slide">
 <h2>7. A sociedade e a economia</h2>
-<p>Durante o Primeiro Reinado, a sociedade brasileira era marcada por grandes desigualdades. A escravidão ainda existia e grande parte da riqueza estava concentrada nas mãos de proprietários de terras e pessoas influentes.</p>
+<p>Durante o Primeiro Reinado, a sociedade brasileira era marcada por grandes desigualdades. A escravidão ainda existia e grande parte da riqueza estava concentrada nas mãos de proprietários de terras.</p>
 <p>A economia dependia principalmente da agricultura de exportação, com produtos como açúcar, algodão e café, que começava a ganhar importância.</p>
 <ul>
 <li>A escravidão continuava sendo uma realidade.</li>
@@ -271,8 +280,15 @@ button:disabled{opacity:.4;cursor:not-allowed}
 </div>
 <p><strong>Conclusão:</strong> o Primeiro Reinado ajudou a construir o Brasil como país independente, mas também revelou muitos desafios políticos e sociais.</p>
 </section>
-
 </main>
+
+<div class="seletor-voz">
+<label for="voz">🎙️ Escolha a voz da narração:</label>
+<select id="voz">
+<option>Carregando vozes...</option>
+</select>
+<div id="status">Procurando vozes brasileiras disponíveis...</div>
+</div>
 
 <div class="controles">
 <button onclick="anterior()">◀ VOLTAR</button>
@@ -282,19 +298,21 @@ button:disabled{opacity:.4;cursor:not-allowed}
 <button onclick="pausar()">⏸ PAUSAR</button>
 <button onclick="continuar()">▶ CONTINUAR</button>
 <button onclick="parar()">⏹ PARAR</button>
+<button onclick="testarVoz()">🎧 TESTAR VOZ</button>
 </div>
 
 <footer class="rodape">
 Apresentação escolar • História do Brasil • Primeiro Reinado
 </footer>
-
 </div>
 
 <script>
-let atual = 0;
-const slides = document.querySelectorAll(".slide");
+let atual=0;
+const slides=document.querySelectorAll(".slide");
+let vozes=[];
+let vozSelecionada=null;
 
-const explicacoes = [
+const explicacoes=[
 "Vamos começar! O Primeiro Reinado foi o início do Brasil independente, com Dom Pedro Primeiro no poder. Pense nele como o primeiro capítulo da história do Brasil depois da separação de Portugal.",
 "Antes da Independência, o Brasil era controlado por Portugal. A chegada da família real em 1808 mudou bastante a situação. Imagine como seria se as principais decisões da sua cidade fossem tomadas por outro país.",
 "Dom Pedro recebeu ordens para voltar a Portugal, mas decidiu permanecer no Brasil. Esse momento ficou conhecido como Dia do Fico. Foi um passo importante para a Independência.",
@@ -322,58 +340,86 @@ function proximo(){
 function anterior(){
   if(atual>0){atual--;atualizar();}
 }
+function parar(){speechSynthesis.cancel();}
+function pausar(){
+  if(speechSynthesis.speaking&&!speechSynthesis.paused)speechSynthesis.pause();
+}
+function continuar(){
+  if(speechSynthesis.paused)speechSynthesis.resume();
+}
 
-function escolherVoz(){
-  const vozes = speechSynthesis.getVoices();
-  return vozes.find(v=>v.lang.toLowerCase()==="pt-br")
-      || vozes.find(v=>v.lang.toLowerCase().startsWith("pt"))
-      || null;
+function carregarVozes(){
+  vozes=speechSynthesis.getVoices();
+  const seletor=document.getElementById("voz");
+  seletor.innerHTML="";
+
+  const brasileiras=vozes.filter(v=>
+    v.lang.toLowerCase()==="pt-br"
+  );
+
+  const lista=brasileiras.length?brasileiras:
+    vozes.filter(v=>v.lang.toLowerCase().startsWith("pt"));
+
+  if(lista.length===0){
+    seletor.innerHTML='<option value="">Nenhuma voz em português encontrada</option>';
+    document.getElementById("status").textContent=
+      "Não encontrei voz brasileira instalada. Verifique as vozes do Windows.";
+    return;
+  }
+
+  lista.forEach(v=>{
+    const op=document.createElement("option");
+    op.value=vozes.indexOf(v);
+    op.textContent=v.name+" ("+v.lang+")";
+    seletor.appendChild(op);
+  });
+
+  const masculina=lista.find(v=>
+    /antonio|daniel|felipe|ricardo|male|masculino/i.test(v.name)
+  );
+
+  vozSelecionada=masculina||lista[0];
+  seletor.value=vozes.indexOf(vozSelecionada);
+
+  document.getElementById("status").textContent=
+    masculina
+    ?"Voz masculina encontrada: "+masculina.name
+    :"Voz brasileira encontrada. Teste as opções para escolher a masculina.";
+}
+
+document.getElementById("voz").addEventListener("change",function(){
+  vozSelecionada=vozes[Number(this.value)]||null;
+  parar();
+  document.getElementById("status").textContent=
+    vozSelecionada?"Voz selecionada: "+vozSelecionada.name:"Selecione uma voz.";
+});
+
+function falar(texto){
+  parar();
+  const msg=new SpeechSynthesisUtterance(texto);
+  msg.lang="pt-BR";
+  msg.rate=1.15;
+  msg.pitch=0.92;
+  msg.volume=1;
+  if(vozSelecionada)msg.voice=vozSelecionada;
+  speechSynthesis.speak(msg);
 }
 
 function ouvir(){
-  parar();
-
-  const slide = slides[atual];
-  const texto = slide.innerText.replace(/\s+/g," ").trim();
-  const fala = texto + ". Explicando de uma maneira mais simples: " + explicacoes[atual];
-
-  const mensagem = new SpeechSynthesisUtterance(fala);
-  mensagem.lang = "pt-BR";
-  mensagem.rate = 1.2;
-  mensagem.pitch = 1;
-  mensagem.volume = 1;
-
-  const voz = escolherVoz();
-  if(voz) mensagem.voice = voz;
-
-  speechSynthesis.speak(mensagem);
+  const texto=slides[atual].innerText.replace(/\s+/g," ").trim();
+  falar(texto+". Explicando de uma maneira mais simples: "+explicacoes[atual]);
 }
 
-function pausar(){
-  if(speechSynthesis.speaking && !speechSynthesis.paused){
-    speechSynthesis.pause();
-  }
+function testarVoz(){
+  falar("Olá! Esta é a voz selecionada para narrar a apresentação sobre o Primeiro Reinado do Brasil. Vamos começar nossa aula de História.");
 }
 
-function continuar(){
-  if(speechSynthesis.paused){
-    speechSynthesis.resume();
-  }
-}
-
-function parar(){
-  speechSynthesis.cancel();
-}
-
-speechSynthesis.onvoiceschanged = () => {};
+speechSynthesis.onvoiceschanged=carregarVozes;
+carregarVozes();
 
 document.addEventListener("keydown",e=>{
   if(e.key==="ArrowRight")proximo();
   if(e.key==="ArrowLeft")anterior();
-  if(e.key===" "){
-    e.preventDefault();
-    ouvir();
-  }
 });
 </script>
 </body>
